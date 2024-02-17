@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 13:37:26 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/16 19:03:06 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:51:58 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char		*ft_cutfront(char *line);
 char		*ft_cutback(char *line);
 char		*ft_strdup(char *s1);
 t_struct	Bigcheckfunc(t_struct data);
-void		namecheck(char *name);
+void		namecheck(t_struct data);
 int			opencheck(t_struct data);
 void		window(void);
 t_struct	mapreader(t_struct data);
@@ -54,6 +54,9 @@ char		**ft_split(char const *s, char c);
 t_struct 	shapecheck(t_struct data);
 void		numcheck(t_struct data);
 int			firstandlast(char *str);
+int			midlines(t_struct data);
+void		iexit(t_struct data, int i);
+int			diffkeyscheck(t_struct data);
 // int linescheck(t_struct data);
 
 

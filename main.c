@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 17:16:15 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/16 19:03:44 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/02/17 17:02:39 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,22 @@
 //The home function for checks
 t_struct Bigcheckfunc(t_struct data)
 {
-	namecheck(data.name);
+	namecheck(data);
 	data.fd = opencheck(data);
 	data = mapreader(data);
 	data = shapecheck(data);
 	numcheck(data);
-	// if (!firstandlast(data.map2[data.lines - 1]) || !firstandlast(data.map2[0]))
- 	// {
-	// 	printf("Error in the map");
-	// 	exit(1);
-	// }
+	if (!firstandlast(data.map2[data.lines - 1]) || !firstandlast(data.map2[0]))
+	{
+		printf("First and last");		
+		iexit(data, 3);
+	}
+	if (!midlines(data) || !diffkeyscheck(data))
+	{
+		printf("Mid and diff");		
+		iexit(data, 3);
+	}
+	printf("%s",data.map);
 	return (data);
 }
 
@@ -39,6 +45,6 @@ int main(int argc, char *argv[])
 			exit(1);
 		}
 	data.name = argv[1];
-	data = Bigcheckfunc(data);	
+	data = Bigcheckfunc(data);
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:13:30 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/11 17:31:19 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/02/16 19:07:56 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct	s_data {
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}				t_data;
+}			t_data;
 
 
 
