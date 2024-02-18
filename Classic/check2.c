@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 19:56:50 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/17 17:01:26 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/02/17 18:39:29 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,17 @@
 
 t_struct shapecheck(t_struct data)
 {
-	int i;
+	int j;
+	int	len;
 	
-	i = 0;
-	data.firstnl = 0;
-	data.lines = 0;
-	data.len = ft_strlen(data.map);
-	while (data.map[data.firstnl] && data.map[data.firstnl] != '\n')
-		data.firstnl++;
-	while (data.map[i])
+	j = 1;
+	while (j < data.lines - 1)
 	{
-		if (data.map[i] == '\n')
-			data.lines++;
-		i++;
+		len = ft_strlen(data.map2[j]);
+		if (len != ft_strlen(data.map2[0]))
+			iexit(data, 3);
+		j++;
 	}
-	data.lines++;
-	data.len++;
-	data.firstnl++;
-	if (data.len / data.lines == data.firstnl && data.lines > 2 && data.firstnl > 3)
-		return (data);
-	printf("SHApe");
-	iexit(data, 3);
 	return (data);
 }
 void	numcheck(t_struct data)

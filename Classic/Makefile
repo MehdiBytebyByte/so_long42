@@ -6,13 +6,13 @@
 #    By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/11 17:41:30 by mboughra          #+#    #+#              #
-#    Updated: 2024/02/16 19:06:22 by mboughra         ###   ########.fr        #
+#    Updated: 2024/02/18 23:36:58 by mboughra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
-SRCS = main.c mapcheck.c mlxwindow.c
+SRCS = check2.c fail.c get_next_line_utils.c map.ber mlxwindow.c split.c check1.c check3.c get_next_line.c main.c mapmaker.c so_long.h test.c
 OBJS = $(SRCS:.c=.o)
 EXEC = so_long
 LIBS = -lmlx -lXext -lX11

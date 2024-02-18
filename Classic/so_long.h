@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 13:37:26 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/17 16:51:58 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/02/18 23:16:08 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,6 @@ int			midlines(t_struct data);
 void		iexit(t_struct data, int i);
 int			diffkeyscheck(t_struct data);
 // int linescheck(t_struct data);
-
+t_struct doublenewcheck(t_struct data);
 
 #endif

@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mapmaker.c                                         :+:      :+:    :+:   */
+/*   namecheck.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/12 18:45:51 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/16 19:02:20 by mboughra         ###   ########.fr       */
+/*   Created: 2024/02/18 21:16:14 by mboughra          #+#    #+#             */
+/*   Updated: 2024/02/18 21:29:40 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-//reads the entire map in one string
-t_struct mapreader(t_struct data)
+void namecheck(t_struct data)
 {
-	char	*reader;
-	
-	data.map = NULL;
-	data.fd = open(data.name, O_RDONLY);
-	while (1)
+  	char	*suffix;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	suffix	= ".ber";
+	while(data.name[i])
+		i++;
+	i = i - 4;
+	while (data.name[i] == suffix[j])
 	{
-		reader = get_next_line(data.fd);
-		if (!reader)
-			break ;	
-		data.map = ft_strjoin(data.map, reader);
-		free(reader);
-		reader = NULL;
+		i++;
+		j++;
 	}
-	data.map2 = ft_split(data.map, '\n');	
-	return (data);
-	// free(joiner);		//remmember to free checker
+	if (j != 5)
+	{
+		printf("Name not valid \n");
+		ft_exit(data, 1);
+	}
 }
