@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 17:16:15 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/18 23:34:24 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/02/21 05:21:36 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_struct Bigcheckfunc(t_struct data)
 	namecheck(data);
 	data.fd = opencheck(data);
 	data = mapreader(data);
-	doublenewcheck(data);
+	data = doublenewcheck(data);
 	data = Datafiller(data);
 	data = shapecheck(data);
 	if (!midlines(data) || !diffkeyscheck(data))
@@ -75,6 +75,7 @@ int main(int argc, char *argv[])
 
 
 // To do next
+// find weird segfault
 // Flood fill tomorrow
 // set up correct error message
 //Makefile
@@ -83,6 +84,4 @@ int main(int argc, char *argv[])
 //in Flood Fill remmmember to protect when the collectible is Blocked by a End and versi vera
 //LEAKSS Free both 2d arrays in the fail function or after program end
 //when escape is pressed remmember to close and free
-
-
-
+ 

@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:45:51 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/18 23:34:02 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/02/21 04:48:39 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 t_struct mapreader(t_struct data)
 {
 	char	*reader;
-	int i;
+	int 	i;
 
 	i = 0;
 	data.map = NULL;

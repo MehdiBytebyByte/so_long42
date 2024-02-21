@@ -6,34 +6,39 @@
 #    By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/11 17:41:30 by mboughra          #+#    #+#              #
-#    Updated: 2024/02/18 23:36:58 by mboughra         ###   ########.fr        #
+#    Updated: 2024/02/20 21:29:56 by mboughra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
-FLAGS = -Wall -Wextra -Werror
-SRCS = check2.c fail.c get_next_line_utils.c map.ber mlxwindow.c split.c check1.c check3.c get_next_line.c main.c mapmaker.c so_long.h test.c
+# Compiler
+CC =  cc
+CFLAGS = -Wall -Werror -Wextra
+
+# Executable
+TARGET = so_long
+
+# Source files
+SRCS = check2.c check1.c check3.c fail.c get_next_line_utils.c get_next_line.c main.c mapmaker.c split.c
+
+# Object files
 OBJS = $(SRCS:.c=.o)
-EXEC = so_long
-LIBS = -lmlx -lXext -lX11
-INC_DIR = .
-NAME = so_long.a
 
+# Header files
+HEADERS = so_long.h
 
-do: $(NAME) 
+# # Libraries
+# LIBS = -lmlx -lXext -lX11 -lm
 
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-	
-%.o: %.c
-	$(CC) $(FLAGS) -Imlx -c $< -o $@
+# Compilation rule
+%.o: %.c $(HEADERS)
+	$(CC) $(CFLAGS) -c $< -o $@
 
-# clean:
-# 	rm -f $(OBJS)
-
-# fclean: clean
-# 	rm -f $(EXEC)
-
-# re: fclean all
-
-.PHONY: all clean fclean re
+# Linking rule
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET) $(LIBS)
+clean:
+	rm -f $(OBJS)
+fclean: clean
+	rm -f $(TARGET)
+re: fclean all
+all: $(TARGET)

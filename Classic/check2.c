@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 19:56:50 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/17 18:39:29 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/02/21 05:22:17 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 t_struct shapecheck(t_struct data)
 {
 	int j;
-	int	len;
-	
+	size_t	len;
+
 	j = 1;
+	
 	while (j < data.lines - 1)
 	{
-		len = ft_strlen(data.map2[j]);
+		len = ft_strlen(data.map2[j]); // issue here
 		if (len != ft_strlen(data.map2[0]))
 			iexit(data, 3);
 		j++;
