@@ -6,7 +6,7 @@
 #    By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/11 17:41:30 by mboughra          #+#    #+#              #
-#    Updated: 2024/02/20 21:29:56 by mboughra         ###   ########.fr        #
+#    Updated: 2024/02/24 15:48:30 by mboughra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra
 TARGET = so_long
 
 # Source files
-SRCS = check2.c check1.c check3.c fail.c get_next_line_utils.c get_next_line.c main.c mapmaker.c split.c
+SRCS = check2.c check1.c check3.c fail.c get_next_line_utils.c get_next_line.c main.c mapmaker.c split.c floodfill.c
 
 # Object files
 OBJS = $(SRCS:.c=.o)

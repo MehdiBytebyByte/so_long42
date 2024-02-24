@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 17:16:15 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/21 05:21:36 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/02/24 19:44:38 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ t_struct Datafiller(t_struct data)
 	int i;
 
 	i = 0;
-	data.firstnl = 0;
+	data.colums = 0;
 	data.lines = 0;
 	data.len = ft_strlen(data.map);
-	while (data.map[data.firstnl] && data.map[data.firstnl] != '\n')
-		data.firstnl++;
+	while (data.map[data.colums] && data.map[data.colums] != '\n')
+		data.colums++;
 	while (data.map[i])
 	{
 		if (data.map[i] == '\n')
@@ -30,28 +30,25 @@ t_struct Datafiller(t_struct data)
 	}
 	data.lines++;
 	data.len++;
-	data.firstnl++;
+	data.colums++;
+	printf("%d",data.lines);
 	return (data);
 }
 
-//The home function for checks
 t_struct Bigcheckfunc(t_struct data)
 {
 	namecheck(data);
-	data.fd = opencheck(data);
-	data = mapreader(data);
-	data = doublenewcheck(data);
-	data = Datafiller(data);
+	data.fd = opencheck(data);  //open the file --- remmember to close the fd;
+	data = mapreader(data);		//reads the entire map in one d array remmember to free;
+	data = doublenewcheck(data); // check for the case of two conescutive newlines cuz it makes of split segfault
+	data = Datafiller(data);	// fill data for use later
 	data = shapecheck(data);
 	if (!midlines(data) || !diffkeyscheck(data))
 		iexit(data, 3);
 	numcheck(data);
 	if (!firstandlast(data.map2[data.lines - 1]) || !firstandlast(data.map2[0]))
-	{
-		printf("First and last");
-		iexit(data, 3);
-	}
-	printf("%s",data.map);
+		iexit(data , 3);
+	write(1,"Correct Map\n",13);
 	return (data);
 }
 
@@ -60,16 +57,21 @@ int main(int argc, char *argv[])
 {
 	t_struct data;
 	
-	if(argc != 2)
-		{
-			printf("enter a map and nothing else");
-			exit(1);
-		}
 	data.name = argv[1];
+	if(argc != 2)
+		iexit(data, 0);
 	data = Bigcheckfunc(data);
 	printf("\nLen %d\n",data.len);
 	printf("lines %d\n",data.lines);
-	printf("first nl %d\n",data.firstnl);
+	printf("first nl %d\n",data.colums);
+	data.len--;
+	data.lines--;
+	data.colums--;
+	printf("\n\n\n");
+	// data = findposition(data);
+	// data = ft_secondmap(data);
+	// printf("%s",data.newmap[3]);
+
 	return 0;
 }
 

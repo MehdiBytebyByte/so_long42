@@ -6,13 +6,12 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:45:51 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/21 04:48:39 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/02/24 18:25:50 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-//reads the entire map in one string
 t_struct mapreader(t_struct data)
 {
 	char	*reader;
@@ -31,5 +30,4 @@ t_struct mapreader(t_struct data)
 		reader = NULL;
 	}
 	return (data);
-	// free(joiner);		//remmember to free checker
 }
