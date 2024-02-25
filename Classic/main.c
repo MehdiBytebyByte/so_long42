@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 17:16:15 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/25 17:32:36 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/02/25 20:23:32 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,9 @@ int main(int argc, char *argv[])
 	if(argc != 2)
 		iexit(data, 0);
 	data = Bigcheckfunc(data);
-	data = ft_secondmap(data);
-	int i = 0;
-	while (i <= data.lines)
-	{
-		printf("%s\n",data.newmap[i]);
-		i++;	
-	}
+	data = pathcheck(data);
+	
+
 	
 	exit(1);
 

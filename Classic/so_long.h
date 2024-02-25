@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 13:37:26 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/25 16:50:21 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/02/25 19:34:22 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,11 @@ void		iexit(t_struct data, int i);
 int			diffkeyscheck(t_struct data);
 // int linescheck(t_struct data);
 t_struct 	doublenewcheck(t_struct data);
-t_struct	floodFill(t_struct data, int x, int y);
+// t_struct	floodFill(t_struct data, int x, int y);
 t_struct	findposition(t_struct data);
-t_struct ft_secondmap(t_struct data);
+// t_struct ft_secondmap(t_struct data);
 t_struct pathcheck(t_struct data);
+t_struct newmapallocater(t_struct data);
+
 
 #endif
