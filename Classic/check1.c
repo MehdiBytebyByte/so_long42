@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 19:00:16 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/24 18:34:10 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/02/24 19:56:37 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void namecheck(t_struct data)
 	}
 	if (j != 5)
 	{
-		iexit(data, 1);	
+		iexit(data, 1);
 	}
 }
 

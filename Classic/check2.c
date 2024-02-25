@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 19:56:50 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/24 19:44:34 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/02/25 00:12:46 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,15 @@ t_struct shapecheck(t_struct data)
 	int j;
 	size_t	len;
 
-	j = 1;
-	while (j < data.lines - 1)
+	j = 0;
+	while (j <= data.lines)
 	{
 		len = ft_strlen(data.map2[j]); // issue here
 		if (len != ft_strlen(data.map2[0]))
 			iexit(data, 3);
 		j++;
 	}
+	// printf("shapecheck Done");
 	return (data);
 }
 void	numcheck(t_struct data)
@@ -48,10 +49,9 @@ void	numcheck(t_struct data)
 			e++;
 		i++;
 	}
-	if (e != 1 || c <= 0 || p != 1){
-		printf("EPC");		
+	if (e != 1 || c <= 0 || p != 1)
 		iexit(data, 3);
-	}
+	// printf("ECP DONE !");
 }
 int	firstandlast(char *str)
 {
@@ -74,9 +74,9 @@ int	midlines(t_struct data)
 	
 	i = 1;
 	j = 0;
-	while (i < data.lines - 1)
+	while (i < data.lines)
 	{
-		if (data.map2[i][0] != '1' || data.map2[i][data.colums - 2 ] != '1')
+		if (data.map2[i][0] != '1' || data.map2[i][data.colums - 1 ] != '1')
 			return (0);
 		i++;
 	}

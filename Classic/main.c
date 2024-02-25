@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 17:16:15 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/24 19:44:38 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/02/25 17:32:36 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@ t_struct Datafiller(t_struct data)
 			data.lines++;
 		i++;
 	}
-	data.lines++;
-	data.len++;
-	data.colums++;
-	printf("%d",data.lines);
+	printf("%d\n",data.lines);
+	printf("%d\n",data.colums);
+	printf("%d\n",data.len);
 	return (data);
 }
 
@@ -46,9 +45,9 @@ t_struct Bigcheckfunc(t_struct data)
 	if (!midlines(data) || !diffkeyscheck(data))
 		iexit(data, 3);
 	numcheck(data);
-	if (!firstandlast(data.map2[data.lines - 1]) || !firstandlast(data.map2[0]))
+	if (!firstandlast(data.map2[data.lines]) || !firstandlast(data.map2[0]))
 		iexit(data , 3);
-	write(1,"Correct Map\n",13);
+
 	return (data);
 }
 
@@ -61,16 +60,15 @@ int main(int argc, char *argv[])
 	if(argc != 2)
 		iexit(data, 0);
 	data = Bigcheckfunc(data);
-	printf("\nLen %d\n",data.len);
-	printf("lines %d\n",data.lines);
-	printf("first nl %d\n",data.colums);
-	data.len--;
-	data.lines--;
-	data.colums--;
-	printf("\n\n\n");
-	// data = findposition(data);
-	// data = ft_secondmap(data);
-	// printf("%s",data.newmap[3]);
+	data = ft_secondmap(data);
+	int i = 0;
+	while (i <= data.lines)
+	{
+		printf("%s\n",data.newmap[i]);
+		i++;	
+	}
+	
+	exit(1);
 
 	return 0;
 }

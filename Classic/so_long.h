@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 13:37:26 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/24 19:24:44 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/02/25 16:50:21 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ t_struct 	doublenewcheck(t_struct data);
 t_struct	floodFill(t_struct data, int x, int y);
 t_struct	findposition(t_struct data);
 t_struct ft_secondmap(t_struct data);
+t_struct pathcheck(t_struct data);
 
 #endif
