@@ -6,11 +6,11 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:59:25 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/20 21:30:35 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/02/28 15:13:46 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 static int	ft_subscounter(char *str, char c)
 {

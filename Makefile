@@ -6,19 +6,23 @@
 #    By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/11 17:41:30 by mboughra          #+#    #+#              #
-#    Updated: 2024/02/25 19:35:47 by mboughra         ###   ########.fr        #
+#    Updated: 2024/02/28 15:15:09 by mboughra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compiler
-CC =  cc
+CC =  gcc
 CFLAGS = -Wall -Werror -Wextra
 
 # Executable
 TARGET = so_long
 
 # Source files
-SRCS = check2.c check1.c check3.c fail.c get_next_line_utils.c get_next_line.c main.c mapmaker.c split.c floodfill.c pathcheck.c
+SRCS = checkers/check2.c checkers/check1.c checkers/check3.c \
+		get_next_line/get_next_line_utils.c get_next_line/get_next_line.c \
+		main.c checkers/mapmaker.c checkers/split.c checkers/pathcheck.c \
+		infocollect/init.c checkers/homecheck.c errorhandle/fail.c \
+		mlx/mlxwindow.c
 # Object files
 OBJS = $(SRCS:.c=.o)
 
@@ -30,14 +34,16 @@ HEADERS = so_long.h
 
 # Compilation rule
 %.o: %.c $(HEADERS)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
 
 # Linking rule
 $(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(TARGET) $(LIBS)
+	$(CC) $(CFLAGS) $(OBJS) -lmlx -framework OpenGL -framework AppKit -o $(TARGET) 
 clean:
 	rm -f $(OBJS)
 fclean: clean
 	rm -f $(TARGET)
 re: fclean all
 all: $(TARGET)
+
+.PHONY: clean

@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 13:37:26 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/25 19:34:22 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/02/28 15:00:17 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_struct
 #include <stdio.h>
 #include <math.h>
 
-
+//get_next_line_functions//
 size_t		ft_strlen(char *str);
 size_t		ft_strlcpy(char	*dst, char	*src, size_t	dstsize);
 char		*ft_strjoin(char *s1, char *s2);
@@ -48,10 +48,10 @@ int			newcheck(char *str);
 char		*ft_cutfront(char *line);
 char		*ft_cutback(char *line);
 char		*ft_strdup(char *s1);
+
 t_struct	Bigcheckfunc(t_struct data);
 void		namecheck(t_struct data);
 int			opencheck(t_struct data);
-void		window(void);
 t_struct	mapreader(t_struct data);
 char		**ft_split(char const *s, char c);
 t_struct 	shapecheck(t_struct data);
@@ -60,13 +60,13 @@ int			firstandlast(char *str);
 int			midlines(t_struct data);
 void		iexit(t_struct data, int i);
 int			diffkeyscheck(t_struct data);
-// int linescheck(t_struct data);
 t_struct 	doublenewcheck(t_struct data);
-// t_struct	floodFill(t_struct data, int x, int y);
 t_struct	findposition(t_struct data);
-// t_struct ft_secondmap(t_struct data);
-t_struct pathcheck(t_struct data);
-t_struct newmapallocater(t_struct data);
-
-
+t_struct 	pathcheck(t_struct data);
+t_struct 	newmapallocater(t_struct data);
+t_struct 	FFcheck(t_struct data);
+void		freemap(t_struct data);
+int 		window(t_struct data);
+t_struct isetonull(t_struct data);
+t_struct Datafiller(t_struct data);
 #endif

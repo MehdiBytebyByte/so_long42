@@ -1,28 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check3.c                                           :+:      :+:    :+:   */
+/*   check1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 23:11:42 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/24 18:26:28 by mboughra         ###   ########.fr       */
+/*   Created: 2024/02/15 19:00:16 by mboughra          #+#    #+#             */
+/*   Updated: 2024/02/28 15:02:43 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
-t_struct doublenewcheck(t_struct data)
+void namecheck(t_struct data)
 {
-	int i;
+  	char	*suffix;
+	int		i;
+	int		j;
 
 	i = 0;
-	while (data.map[i])
+	j = 0;
+	suffix	= ".ber";
+	while(data.name[i])
+		i++;
+	i = i - 4;
+	while (data.name[i] == suffix[j])
 	{
-		if (data.map[i] == '\n' && (data.map[i + 1] == '\n' || data.map[i + 1] == '\0'))
-			iexit(data, 3);
-		i++;		
+		i++;
+		j++;
 	}
-	data.map2 = ft_split(data.map, '\n');
-	return(data);
+	if (j == 5)
+		return ;
+	else
+		iexit(data, 1);
+}
+
+int	opencheck(t_struct data)
+{
+	int fd;
+	
+	fd = open(data.name, O_RDONLY);
+	
+	if (fd < 0)
+	{
+		iexit(data ,2);
+	}
+	return (fd);
 }

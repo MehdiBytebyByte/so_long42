@@ -6,11 +6,11 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 19:56:50 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/25 00:12:46 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/02/28 15:02:53 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 t_struct shapecheck(t_struct data)
 {
@@ -20,12 +20,11 @@ t_struct shapecheck(t_struct data)
 	j = 0;
 	while (j <= data.lines)
 	{
-		len = ft_strlen(data.map2[j]); // issue here
+		len = ft_strlen(data.map2[j]);
 		if (len != ft_strlen(data.map2[0]))
-			iexit(data, 3);
+			iexit(data, 4);
 		j++;
 	}
-	// printf("shapecheck Done");
 	return (data);
 }
 void	numcheck(t_struct data)
@@ -50,8 +49,7 @@ void	numcheck(t_struct data)
 		i++;
 	}
 	if (e != 1 || c <= 0 || p != 1)
-		iexit(data, 3);
-	// printf("ECP DONE !");
+		iexit(data, 4);
 }
 int	firstandlast(char *str)
 {
