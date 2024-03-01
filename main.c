@@ -6,11 +6,12 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 17:16:15 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/28 15:10:16 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/01 15:27:35 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -23,6 +24,7 @@ int main(int argc, char *argv[])
 	data = Bigcheckfunc(data);
 	if(window(data) < 0)
 		iexit(data, 7);
+	printf("DONE");
 	return 0;
 }
  

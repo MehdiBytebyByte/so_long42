@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 13:37:26 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/28 15:57:35 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/01 20:34:51 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 #  define BUFFER_SIZE 1
 # endif
 
+#define Floor "./textures/floor.xpm"
+#define Wall "./textures/wall.xpm"
+#define Player "./textures/player.xpm"
+
 #include <fcntl.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -24,14 +28,6 @@
 #include <mlx.h>
 #include <stdio.h>
 #include <math.h>
-
-typedef struct	s_mlx {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}			t_mlx;
 
 typedef struct s_struct
 {
