@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 14:47:02 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/28 15:15:20 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/02 14:30:00 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ t_struct isetonull(t_struct data)
 	data.map = 0;
 	data.name = 0;
 	data.newmap = 0;
-	data.px = 0;
-	data.py = 0;
 	return (data);
 }
 

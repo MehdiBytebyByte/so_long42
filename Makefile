@@ -6,7 +6,7 @@
 #    By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/11 17:41:30 by mboughra          #+#    #+#              #
-#    Updated: 2024/02/28 19:39:38 by mboughra         ###   ########.fr        #
+#    Updated: 2024/03/02 16:23:02 by mboughra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS = checkers/check2.c checkers/check1.c checkers/check3.c \
 		get_next_line/get_next_line_utils.c get_next_line/get_next_line.c \
 		main.c checkers/mapmaker.c checkers/split.c checkers/pathcheck.c \
 		infocollect/init.c checkers/homecheck.c errorhandle/fail.c \
-		mlx/mlxwindow.c
+		mlx/mlxwindow.c infocollect/posfinder.c mlx/mapset.c
 # Object files
 OBJS = $(SRCS:.c=.o)
 

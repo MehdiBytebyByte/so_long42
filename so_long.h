@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 13:37:26 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/01 20:34:51 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/02 18:18:18 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 #define Floor "./textures/floor.xpm"
 #define Wall "./textures/wall.xpm"
 #define Player "./textures/player.xpm"
+#define Col "./textures/collect.xpm"
+#define End "./textures/end.xpm"
 
 #include <fcntl.h>
 #include <stdlib.h>
@@ -41,7 +43,27 @@ typedef struct s_struct
 	char	**newmap;
 	int		px;
 	int		py;
+	int		co_count;
+	int		*colx;
+	int		*coly;
 }t_struct;
+
+typedef struct	s_mlx 
+{
+	void	*mlx;
+	void	*mlx_win;
+	void	*player;
+	void	*floor;
+	void	*wall;
+	void	*col;
+	void	*end;
+}t_mlx;
+
+typedef struct s_params
+{
+    t_mlx		*mlx;
+    t_struct	*data;
+}t_params;
 
 void		freemap(t_struct data);
 void		namecheck(t_struct data);
@@ -72,4 +94,9 @@ t_struct 	newmapallocater(t_struct data);
 t_struct 	FFcheck(t_struct data);
 t_struct 	isetonull(t_struct data);
 t_struct 	Datafiller(t_struct data);
+void		mapinit(t_struct data, t_mlx mlx);
+void		collectinit(t_struct data, t_mlx mlx);
+void		click(int keycode, t_mlx *mlx);
+// t_struct 	collectioncount(t_struct data);
+// t_struct 	collectalloc(t_struct data);
 #endif

@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 14:56:43 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/28 14:57:05 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/02 15:22:23 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ t_struct Bigcheckfunc(t_struct data)
 		iexit(data , 4);
 	data = pathcheck(data);
 	data = FFcheck(data);
+	// data = collectioncount(data);
+	// data = collectalloc(data);
 	return (data);
 }
