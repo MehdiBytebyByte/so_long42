@@ -6,28 +6,28 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 13:10:41 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/02 15:22:04 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/03 19:08:28 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-// t_struct collectioncount(t_struct data)
-// {
-// 	int i;
-// 	int count;
+t_struct collectioncount(t_struct data)
+{
+	int i;
+	int count;
 	
-// 	i = 0;
-// 	count = 0;
-// 	while (data.map[i])
-// 	{
-// 		if (data.map[i] == 'C')
-// 			count++;
-// 		i++;
-// 	}
-// 	data.co_count = count;
-// 	return (data);
-// }
+	i = 0;
+	count = 0;
+	while (data.map[i] != '\0')
+	{
+		if (data.map[i] == 'C')
+			count++;
+		i++;
+	}
+	data.co_count = count;
+	return (data);
+}
 // t_struct collectalloc(t_struct data)
 // {
 // 	int i;

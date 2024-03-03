@@ -4,6 +4,8 @@
 		"iterator": "c",
 		"string": "c",
 		"string_view": "c",
-		"vector": "c"
+		"vector": "c",
+		"algorithm": "c",
+		"so_long.h": "c"
 	}
 }

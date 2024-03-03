@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 13:37:26 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/02 18:18:18 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/03 21:16:54 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@
 #define Player "./textures/player.xpm"
 #define Col "./textures/collect.xpm"
 #define End "./textures/end.xpm"
+// #define printf ft_printf
 
 #include <fcntl.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <mlx.h>
-#include <stdio.h>
 #include <math.h>
 
 typedef struct s_struct
@@ -46,10 +46,7 @@ typedef struct s_struct
 	int		co_count;
 	int		*colx;
 	int		*coly;
-}t_struct;
-
-typedef struct	s_mlx 
-{
+	int		moves;
 	void	*mlx;
 	void	*mlx_win;
 	void	*player;
@@ -57,13 +54,7 @@ typedef struct	s_mlx
 	void	*wall;
 	void	*col;
 	void	*end;
-}t_mlx;
-
-typedef struct s_params
-{
-    t_mlx		*mlx;
-    t_struct	*data;
-}t_params;
+}t_struct;
 
 void		freemap(t_struct data);
 void		namecheck(t_struct data);
@@ -94,9 +85,14 @@ t_struct 	newmapallocater(t_struct data);
 t_struct 	FFcheck(t_struct data);
 t_struct 	isetonull(t_struct data);
 t_struct 	Datafiller(t_struct data);
-void		mapinit(t_struct data, t_mlx mlx);
-void		collectinit(t_struct data, t_mlx mlx);
-void		click(int keycode, t_mlx *mlx);
-// t_struct 	collectioncount(t_struct data);
-// t_struct 	collectalloc(t_struct data);
+void		mapinit(t_struct data);
+void		collectinit(t_struct data);
+int			click(int keycode, void *param);
+t_struct 	collectioncount(t_struct data);
+void		end(t_struct *data);
+t_struct	*move_right(t_struct *data);
+t_struct	*move_left(t_struct *data);
+t_struct	*move_up(t_struct *data);
+t_struct	*move_down(t_struct *data);
+t_struct	allmlxinit(t_struct data);
 #endif
