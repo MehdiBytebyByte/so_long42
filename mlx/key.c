@@ -6,20 +6,20 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 20:32:24 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/03 21:02:07 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:52:12 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int click(int keycode, void *param)
+int	click(int keycode, void *param)
 {
-	t_struct *data;
-	
+	t_struct	*data;
+
 	data = (t_struct *)param;
 	if (keycode == 53)
 		end(data);
-	if(keycode == 2)
+	if (keycode == 2)
 		data = move_right(data);
 	if (keycode == 1)
 		data = move_left(data);

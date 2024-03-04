@@ -6,22 +6,22 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 19:00:16 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/28 15:02:43 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:19:07 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void namecheck(t_struct data)
+void	namecheck(t_struct data)
 {
-  	char	*suffix;
+	char	*suffix;
 	int		i;
 	int		j;
 
 	i = 0;
 	j = 0;
-	suffix	= ".ber";
-	while(data.name[i])
+	suffix = ".ber";
+	while (data.name[i])
 		i++;
 	i = i - 4;
 	while (data.name[i] == suffix[j])
@@ -37,13 +37,10 @@ void namecheck(t_struct data)
 
 int	opencheck(t_struct data)
 {
-	int fd;
-	
+	int	fd;
+
 	fd = open(data.name, O_RDONLY);
-	
 	if (fd < 0)
-	{
-		iexit(data ,2);
-	}
+		iexit(data, 2);
 	return (fd);
 }

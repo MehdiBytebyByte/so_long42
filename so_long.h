@@ -6,30 +6,24 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 13:37:26 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/03 21:16:54 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:45:21 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
-#define SO_LONG_H
+# define SO_LONG_H
+# define FLOOR "./textures/floor.xpm"
+# define WALL "./textures/wall.xpm"
+# define PLAYER "./textures/player.xpm"
+# define COL "./textures/collect.xpm"
+# define END "./textures/end.xpm"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
-# endif
-
-#define Floor "./textures/floor.xpm"
-#define Wall "./textures/wall.xpm"
-#define Player "./textures/player.xpm"
-#define Col "./textures/collect.xpm"
-#define End "./textures/end.xpm"
-// #define printf ft_printf
-
-#include <fcntl.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <mlx.h>
-#include <math.h>
+# include <fcntl.h>
+# include <stdarg.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <mlx.h>
 
 typedef struct s_struct
 {
@@ -54,7 +48,7 @@ typedef struct s_struct
 	void	*wall;
 	void	*col;
 	void	*end;
-}t_struct;
+}	t_struct;
 
 void		freemap(t_struct data);
 void		namecheck(t_struct data);
@@ -72,27 +66,33 @@ int			midlines(t_struct data);
 int			newcheck(char *str);
 int			opencheck(t_struct data);
 int			diffkeyscheck(t_struct data);
-int 		window(t_struct data);
+int			window(t_struct data);
 size_t		ft_strlen(char *str);
 size_t		ft_strlcpy(char	*dst, char	*src, size_t	dstsize);
-t_struct 	shapecheck(t_struct data);
+t_struct	shapecheck(t_struct data);
 t_struct	mapreader(t_struct data);
-t_struct	Bigcheckfunc(t_struct data);
-t_struct 	doublenewcheck(t_struct data);
+t_struct	bigcheckfunc(t_struct data);
+t_struct	doublenewcheck(t_struct data);
 t_struct	findposition(t_struct data);
-t_struct 	pathcheck(t_struct data);
-t_struct 	newmapallocater(t_struct data);
-t_struct 	FFcheck(t_struct data);
-t_struct 	isetonull(t_struct data);
-t_struct 	Datafiller(t_struct data);
+t_struct	pathcheck(t_struct data);
+t_struct	newmapallocater(t_struct data);
+t_struct	ffcheck(t_struct data);
+t_struct	datafiller(t_struct data);
 void		mapinit(t_struct data);
 void		collectinit(t_struct data);
 int			click(int keycode, void *param);
-t_struct 	collectioncount(t_struct data);
+t_struct	collectioncount(t_struct data);
 void		end(t_struct *data);
 t_struct	*move_right(t_struct *data);
 t_struct	*move_left(t_struct *data);
 t_struct	*move_up(t_struct *data);
 t_struct	*move_down(t_struct *data);
 t_struct	allmlxinit(t_struct data);
+int			ft_printf(const char *str, ...);
+int			ft_putchar(char c);
+int			ft_putnbr(long n);
+int			ft_putnbr2(long n);
+int			ft_putstr(char *s);
+int			ft_hexaconv(unsigned int a, char c);
+int			ft_hexapointer(unsigned long a);
 #endif

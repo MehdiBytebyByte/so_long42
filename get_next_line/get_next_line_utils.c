@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 15:03:02 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/28 15:04:02 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:43:38 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,25 +77,3 @@ char	*ft_strdup(char *s1)
 	s2[i] = '\0';
 	return (s2);
 }
-
-// char	*ft_strjoin(char	*s1, char	*s2)
-// {
-// 	char	*str;
-// 	size_t	s1len;
-// 	size_t	s2len;
-
-// 	if (!s1)
-// 		return (ft_strdup(s2));
-// 	if (!s2)
-// 		return (ft_strdup(s1));
-// 	s1len = ft_strlen(s1);
-// 	s2len = ft_strlen(s2);
-// 	str = (char *)malloc(s1len + s2len + 1);
-// 	if (!str)
-// 		return (free(s1), NULL);
-// 	ft_strlcpy (str, s1, s1len + 1);
-// 	ft_strlcpy (str + s1len, s2, s2len + 1);
-// 	free(s1);
-// 	s1 = NULL;
-// 	return (str);
-// }

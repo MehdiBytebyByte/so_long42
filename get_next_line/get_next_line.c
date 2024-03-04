@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 18:50:10 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/28 15:04:06 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:43:19 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ char	*get_next_line2(char **line, char **rem, char **buf, int fd)
 	i = 1;
 	while (i > 0 && newcheck(*line) == 0)
 	{
-		i = read(fd, *buf, BUFFER_SIZE);
+		i = read(fd, *buf, 1);
 		if (i < 0)
 			return (NULL);
 		buf[0][i] = '\0';
@@ -120,8 +120,8 @@ char	*get_next_line(int fd)
 
 	i = 1;
 	line = NULL;
-	buf = (char *)malloc((size_t)BUFFER_SIZE + 1);
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, NULL, 0) < 0 || !buf)
+	buf = (char *)malloc((size_t)1 + 1);
+	if (fd < 0 || 1 <= 0 || read(fd, NULL, 0) < 0 || !buf)
 		return (free(rem), free(buf), rem = NULL, NULL);
 	if (rem != NULL)
 	{

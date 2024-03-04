@@ -6,28 +6,15 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 14:47:02 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/02 14:30:00 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:45:56 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-t_struct isetonull(t_struct data)
+t_struct	datafiller(t_struct data)
 {
-	data.fd = 0;
-	data.colums = 0;
-	data.lines = 0;
-	data.len = 0;
-	data.map2 = 0;
-	data.map = 0;
-	data.name = 0;
-	data.newmap = 0;
-	return (data);
-}
-
-t_struct Datafiller(t_struct data)
-{
-	int i;
+	int	i;
 
 	i = 0;
 	data.colums = 0;
@@ -41,5 +28,22 @@ t_struct Datafiller(t_struct data)
 			data.lines++;
 		i++;
 	}
+	return (data);
+}
+
+t_struct	collectioncount(t_struct data)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (data.map[i] != '\0')
+	{
+		if (data.map[i] == 'C')
+			count++;
+		i++;
+	}
+	data.co_count = count;
 	return (data);
 }

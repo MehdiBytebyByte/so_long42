@@ -6,25 +6,21 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 17:16:15 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/03 21:01:39 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:38:35 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-
-
-int main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	t_struct data;
-	
-	// data = isetonull(data);
+	t_struct	data;
+
 	data.name = argv[1];
-	if(argc != 2)
+	if (argc != 2)
 		iexit(data, 0);
-	data = Bigcheckfunc(data);
-	if(window(data) < 0)
+	data = bigcheckfunc(data);
+	if (window(data) < 0)
 		iexit(data, 7);
-	return 0;
+	return (0);
 }
- 

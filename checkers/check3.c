@@ -6,30 +6,32 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 23:11:42 by mboughra          #+#    #+#             */
-/*   Updated: 2024/02/28 15:02:59 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:28:53 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-t_struct doublenewcheck(t_struct data)
+t_struct	doublenewcheck(t_struct data)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (data.map[i])
 	{
-		if (data.map[i] == '\n' && (data.map[i + 1] == '\n' || data.map[i + 1] == '\0'))
+		if (data.map[i] == '\n' && (data.map[i + 1] == '\n'
+				|| data.map[i + 1] == '\0'))
 			iexit(data, 4);
-		i++;		
+		i++;
 	}
 	data.map2 = ft_split(data.map, '\n');
-	return(data);
+	return (data);
 }
-t_struct FFcheck(t_struct data)
+
+t_struct	ffcheck(t_struct data)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < data.lines + 1)
@@ -37,7 +39,8 @@ t_struct FFcheck(t_struct data)
 		j = 0;
 		while (j < data.colums)
 		{
-			if(data.newmap[i][j] != '0' && data.newmap[i][j] != '1' && data.newmap[i][j] != 'D')
+			if (data.newmap[i][j] != '0' && data.newmap[i][j] != '1'
+				&& data.newmap[i][j] != 'D')
 				iexit(data, 5);
 			j++;
 		}
@@ -46,15 +49,16 @@ t_struct FFcheck(t_struct data)
 	freemap(data);
 	return (data);
 }
-void freemap(t_struct data)
+
+void	freemap(t_struct data)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < data.lines + 1)
 	{
 		free(data.newmap[i]);
-		i++;	
+		i++;
 	}
 	free(data.newmap);
 	free(data.map);
