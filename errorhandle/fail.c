@@ -6,13 +6,13 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:02:18 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/04 16:42:54 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:46:29 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	iexit(t_struct data, int i)
+void	iexit(t_struct d, int i)
 {
 	write(2, "ERROR\n", 7);
 	if (i == 0)
@@ -30,20 +30,20 @@ void	iexit(t_struct data, int i)
 	else if (i == 6)
 		write(2, "mlx", 4);
 	if (i > 3)
-		cleaner(data);
+		cleaner(d);
 	exit(1);
 }
 
-void	cleaner(t_struct data)
+void	cleaner(t_struct d)
 {
 	int	i;
 
 	i = 0;
-	free(data.map);
-	while (i < data.lines)
+	free(d.map);
+	while (i < d.lines)
 	{
-		free(data.map2[i]);
+		free(d.map2[i]);
 		i++;
 	}
-	free(data.map2);
+	free(d.map2);
 }

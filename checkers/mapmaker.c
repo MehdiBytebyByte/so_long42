@@ -6,30 +6,30 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:45:51 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/04 16:33:33 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:46:29 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-t_struct	mapreader(t_struct data)
+t_struct	mapreader(t_struct d)
 {
 	char	*reader;
 	int		i;
 
 	i = 0;
-	data.map = NULL;
-	data.fd = open(data.name, O_RDONLY);
+	d.map = NULL;
+	d.fd = open(d.name, O_RDONLY);
 	while (1)
 	{
-		reader = get_next_line(data.fd);
+		reader = get_next_line(d.fd);
 		if (!reader)
 			break ;
-		data.map = ft_strjoin(data.map, reader);
+		d.map = ft_strjoin(d.map, reader);
 		free(reader);
 		reader = NULL;
 	}
-	if (!data.map)
-		iexit(data, 3);
-	return (data);
+	if (!d.map)
+		iexit(d, 3);
+	return (d);
 }

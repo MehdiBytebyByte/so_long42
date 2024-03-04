@@ -6,13 +6,13 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 13:37:26 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/04 16:45:21 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:50:48 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-# define FLOOR "./textures/floor.xpm"
+# define FLR "./textures/floor.xpm"
 # define WALL "./textures/wall.xpm"
 # define PLAYER "./textures/player.xpm"
 # define COL "./textures/collect.xpm"
@@ -42,19 +42,19 @@ typedef struct s_struct
 	int		*coly;
 	int		moves;
 	void	*mlx;
-	void	*mlx_win;
+	void	*w;
 	void	*player;
-	void	*floor;
+	void	*flr;
 	void	*wall;
 	void	*col;
 	void	*end;
 }	t_struct;
 
-void		freemap(t_struct data);
-void		namecheck(t_struct data);
-void		cleaner(t_struct data);
-void		numcheck(t_struct data);
-void		iexit(t_struct data, int i);
+void		freemap(t_struct d);
+void		namecheck(t_struct d);
+void		cleaner(t_struct d);
+void		numcheck(t_struct d);
+void		iexit(t_struct d, int i);
 char		*get_next_line(int fd);
 char		*ft_cutfront(char *line);
 char		*ft_strjoin(char *s1, char *s2);
@@ -62,32 +62,32 @@ char		*ft_cutback(char *line);
 char		**ft_split(char const *s, char c);
 char		*ft_strdup(char *s1);
 int			firstandlast(char *str);
-int			midlines(t_struct data);
+int			midlines(t_struct d);
 int			newcheck(char *str);
-int			opencheck(t_struct data);
-int			diffkeyscheck(t_struct data);
-int			window(t_struct data);
+int			opencheck(t_struct d);
+int			diffkeyscheck(t_struct d);
+int			window(t_struct d);
 size_t		ft_strlen(char *str);
 size_t		ft_strlcpy(char	*dst, char	*src, size_t	dstsize);
-t_struct	shapecheck(t_struct data);
-t_struct	mapreader(t_struct data);
-t_struct	bigcheckfunc(t_struct data);
-t_struct	doublenewcheck(t_struct data);
-t_struct	findposition(t_struct data);
-t_struct	pathcheck(t_struct data);
-t_struct	newmapallocater(t_struct data);
-t_struct	ffcheck(t_struct data);
-t_struct	datafiller(t_struct data);
-void		mapinit(t_struct data);
-void		collectinit(t_struct data);
+t_struct	shapecheck(t_struct d);
+t_struct	mapreader(t_struct d);
+t_struct	bigcheckfunc(t_struct d);
+t_struct	doublenewcheck(t_struct d);
+t_struct	findposition(t_struct d);
+t_struct	pathcheck(t_struct d);
+t_struct	newmapallocater(t_struct d);
+t_struct	ffcheck(t_struct d);
+t_struct	dfiller(t_struct d);
+void		mapinit(t_struct d);
+void		collectinit(t_struct d);
 int			click(int keycode, void *param);
-t_struct	collectioncount(t_struct data);
-void		end(t_struct *data);
-t_struct	*move_right(t_struct *data);
-t_struct	*move_left(t_struct *data);
-t_struct	*move_up(t_struct *data);
-t_struct	*move_down(t_struct *data);
-t_struct	allmlxinit(t_struct data);
+t_struct	collectioncount(t_struct d);
+void		end(t_struct *d);
+t_struct	*move_right(t_struct *d);
+t_struct	*move_left(t_struct *d);
+t_struct	*move_up(t_struct *d);
+t_struct	*move_down(t_struct *d);
+t_struct	allmlxinit(t_struct d);
 int			ft_printf(const char *str, ...);
 int			ft_putchar(char c);
 int			ft_putnbr(long n);

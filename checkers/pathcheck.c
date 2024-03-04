@@ -6,99 +6,99 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 18:14:08 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/04 16:41:05 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 18:19:24 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-t_struct	findposition(t_struct data)
+t_struct	findposition(t_struct d)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < data.lines)
+	while (i < d.lines)
 	{
 		j = 0;
-		while (j < data.colums)
+		while (j < d.colums)
 		{
-			if (data.map2[i][j] == 'P')
+			if (d.map2[i][j] == 'P')
 			{
-				data.px = i;
-				data.py = j;
-				return (data);
+				d.px = i;
+				d.py = j;
+				return (d);
 			}
 			j++;
 		}
 		i++;
 	}
-	return (data);
+	return (d);
 }
 
-t_struct	newmapallocater(t_struct data)
+t_struct	newmapallocater(t_struct d)
 {
 	int	i;
 	int	j;
 
 	j = 0;
 	i = 0;
-	data.newmap = (char **) malloc(sizeof(char *) * (data.lines + 1));
-	if (!data.newmap)
-		iexit(data, 4);
-	while (i < data.lines + 1)
+	d.newmap = (char **) malloc(sizeof(char *) * (d.lines + 1));
+	if (!d.newmap)
+		iexit(d, 4);
+	while (i < d.lines + 1)
 	{
-		data.newmap[i] = (char *)malloc(sizeof(char) * (data.colums + 1));
-		if (!data.newmap)
+		d.newmap[i] = (char *)malloc(sizeof(char) * (d.colums + 1));
+		if (!d.newmap)
 		{
 			while (j < i)
-				free(data.newmap[j++]);
-			free(data.newmap[j]);
-			iexit(data, 4);
+				free(d.newmap[j++]);
+			free(d.newmap[j]);
+			iexit(d, 4);
 		}
 		i++;
 	}
-	return (data);
+	return (d);
 }
 
-t_struct	newmapcoppier(t_struct data)
+t_struct	newmapcoppier(t_struct d)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < data.lines + 1)
+	while (i < d.lines + 1)
 	{
 		j = 0;
-		while (j < data.colums + 1)
+		while (j < d.colums + 1)
 		{
-			data.newmap[i][j] = data.map2[i][j];
+			d.newmap[i][j] = d.map2[i][j];
 			j++;
 		}
 		i++;
 	}
-	return (data);
+	return (d);
 }
 
-t_struct	floodfill(t_struct data, int x, int y)
+t_struct	floodfill(t_struct d, int x, int y)
 {
-	if (x < 0 || x >= data.lines || y < 0 || y >= data.colums
-		|| (data.newmap[x][y] != '0' && data.newmap[x][y] != 'P'
-		&& data.newmap[x][y] != 'C' && data.newmap[x][y] != 'E'))
-		return (data);
-	data.newmap[x][y] = 'D';
-	data = floodfill(data, x + 1, y);
-	data = floodfill(data, x - 1, y);
-	data = floodfill(data, x, y + 1);
-	data = floodfill(data, x, y - 1);
-	return (data);
+	if (x < 0 || x >= d.lines || y < 0 || y >= d.colums
+		|| (d.newmap[x][y] != '0' && d.newmap[x][y] != 'P'
+		&& d.newmap[x][y] != 'C' && d.newmap[x][y] != 'E'))
+		return (d);
+	d.newmap[x][y] = 'D';
+	d = floodfill(d, x + 1, y);
+	d = floodfill(d, x - 1, y);
+	d = floodfill(d, x, y + 1);
+	d = floodfill(d, x, y - 1);
+	return (d);
 }
 
-t_struct	pathcheck(t_struct data)
+t_struct	pathcheck(t_struct d)
 {
-	data = findposition(data);
-	data = newmapallocater(data);
-	data = newmapcoppier(data);
-	data = floodfill(data, data.px, data.py);
-	return (data);
+	d = findposition(d);
+	d = newmapallocater(d);
+	d = newmapcoppier(d);
+	d = floodfill(d, d.px, d.py);
+	return (d);
 }

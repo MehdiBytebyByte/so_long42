@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 20:32:24 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/04 14:52:12 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:46:29 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 int	click(int keycode, void *param)
 {
-	t_struct	*data;
+	t_struct	*d;
 
-	data = (t_struct *)param;
+	d = (t_struct *)param;
 	if (keycode == 53)
-		end(data);
+		end(d);
 	if (keycode == 2)
-		data = move_right(data);
+		d = move_right(d);
 	if (keycode == 1)
-		data = move_left(data);
+		d = move_left(d);
 	if (keycode == 0)
-		data = move_down(data);
+		d = move_down(d);
 	if (keycode == 13)
-		data = move_up(data);
+		d = move_up(d);
 	return (0);
 }

@@ -6,120 +6,119 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:08:57 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/04 16:47:47 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:47:17 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	end(t_struct *data)
+void	end(t_struct *d)
 {
-	mlx_destroy_window(data->mlx, data->mlx_win);
+	mlx_destroy_window(d->mlx, d->w);
 	write(1, "Game exited\n", 13);
 	exit(0);
 }
 
-t_struct	*move_right(t_struct *data)
+t_struct	*move_right(t_struct *d)
 {
-	if (data->map2[data->px][data->py + 1] == '1')
-		return (data);
-	if (data->map2[data->px][data->py + 1] == 'E' && data->co_count)
-		return (data);
-	data->moves += 1;
-	ft_printf("Moves -> %d\n", data->moves);
-	data->py = data->py + 1;
-	if (data->map2[data->px][data->py] == 'E' && !data->co_count)
+	if (d->map2[d->px][d->py + 1] == '1')
+		return (d);
+	if (d->map2[d->px][d->py + 1] == 'E' && d->co_count)
+		return (d);
+	d->moves += 1;
+	ft_printf("Moves -> %d\n", d->moves);
+	d->py = d->py + 1;
+	if (d->map2[d->px][d->py] == 'E' && !d->co_count)
 	{
 		write(1, "You Win\n", 9);
-		end(data);
+		end(d);
 	}
-	if (data->map2[data->px][data->py] == 'C')
+	if (d->map2[d->px][d->py] == 'C')
 	{
-		data->map2[data->px][data->py] = '0';
-		mlx_put_image_to_window(data->mlx, data->mlx_win, data->floor, data->py * 64, data->px * 64);
-		data->co_count--;
-		ft_printf("collectibles -> %d\n", data->co_count);
+		d->map2[d->px][d->py] = '0';
+		mlx_put_image_to_window(d->mlx, d->w, d->flr, d->py * 64, d->px * 64);
+		d->co_count--;
+		ft_printf("collectibles -> %d\n", d->co_count);
 	}
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->player, data->py * 64, data->px * 64);
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->floor, (data->py - 1) * 64, data->px * 64);
-	return (data);
+	mlx_put_image_to_window(d->mlx, d->w, d->player, d->py * 64, d->px * 64);
+	mlx_put_image_to_window(d->mlx, d->w, d->flr, (d->py - 1) * 64, d->px * 64);
+	return (d);
 }
 
-t_struct	*move_left(t_struct *data)
+t_struct	*move_left(t_struct *d)
 {
-	if (data->map2[data->px + 1][data->py] == '1')
-		return (data);
-	if (data->map2[data->px + 1][data->py] == 'E' && data->co_count)
-		return (data);
-	data->moves += 1;
-	ft_printf("Moves -> %d\n", data->moves);
-	data->px = data->px + 1;
-	if (data->map2[data->px][data->py] == 'E' && !data->co_count)
+	if (d->map2[d->px + 1][d->py] == '1')
+		return (d);
+	if (d->map2[d->px + 1][d->py] == 'E' && d->co_count)
+		return (d);
+	d->moves += 1;
+	ft_printf("Moves -> %d\n", d->moves);
+	d->px = d->px + 1;
+	if (d->map2[d->px][d->py] == 'E' && !d->co_count)
 	{
 		write(1, "You Win\n", 9);
-		end(data);
+		end(d);
 	}
-	if (data->map2[data->px][data->py] == 'C')
+	if (d->map2[d->px][d->py] == 'C')
 	{
-		data->map2[data->px][data->py] = '0';
-		mlx_put_image_to_window(data->mlx, data->mlx_win, data->floor, data->py * 64, data->px * 64);
-		data->co_count--;
-		ft_printf("collectibles -> %d\n", data->co_count);
+		d->map2[d->px][d->py] = '0';
+		mlx_put_image_to_window(d->mlx, d->w, d->flr, d->py * 64, d->px * 64);
+		d->co_count--;
+		ft_printf("collectibles -> %d\n", d->co_count);
 	}
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->player, data->py * 64, data->px * 64);
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->floor, data->py * 64, (data->px - 1) * 64);
-	return (data);
+	mlx_put_image_to_window(d->mlx, d->w, d->player, d->py * 64, d->px * 64);
+	mlx_put_image_to_window(d->mlx, d->w, d->flr, d->py * 64, (d->px - 1) * 64);
+	return (d);
 }
 
-t_struct	*move_down(t_struct *data)
+t_struct	*move_down(t_struct *d)
 {
-	if (data->map2[data->px][data->py - 1] == '1')
-		return (data);
-	if (data->map2[data->px][data->py - 1] == 'E' && data->co_count)
-		return (data);
-	data->moves += 1;
-	ft_printf("Moves -> %d\n", data->moves);
-	data->py = data->py - 1;
-	if (data->map2[data->px][data->py] == 'E' && !data->co_count)
+	if (d->map2[d->px][d->py - 1] == '1')
+		return (d);
+	if (d->map2[d->px][d->py - 1] == 'E' && d->co_count)
+		return (d);
+	d->moves += 1;
+	ft_printf("Moves -> %d\n", d->moves);
+	d->py = d->py - 1;
+	if (d->map2[d->px][d->py] == 'E' && !d->co_count)
 	{
 		write(1, "You Win\n", 9);
-		end(data);
+		end(d);
 	}
-	if (data->map2[data->px][data->py] == 'C')
+	if (d->map2[d->px][d->py] == 'C')
 	{
-		data->map2[data->px][data->py] = '0';
-		mlx_put_image_to_window(data->mlx, data->mlx_win, data->floor, data->py * 64, data->px * 64);
-		data->co_count--;
-		ft_printf("collectibles -> %d\n", data->co_count);
+		d->map2[d->px][d->py] = '0';
+		mlx_put_image_to_window(d->mlx, d->w, d->flr, d->py * 64, d->px * 64);
+		d->co_count--;
+		ft_printf("collectibles -> %d\n", d->co_count);
 	}
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->player, data->py* 64, data->px * 64);
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->floor, (data->py + 1) * 64, data->px * 64);
-	return (data);
+	mlx_put_image_to_window(d->mlx, d->w, d->player, d->py * 64, d->px * 64);
+	mlx_put_image_to_window(d->mlx, d->w, d->flr, (d->py + 1) * 64, d->px * 64);
+	return (d);
 }
 
-t_struct	*move_up(t_struct *data)
+t_struct	*move_up(t_struct *d)
 {
-	if (data->map2[data->px - 1][data->py] == '1')
-		return (data);
-	if (data->map2[data->px - 1][data->py] == 'E' && data->co_count)
-		return (data);
-	data->moves += 1;
-	ft_printf("Moves -> %d\n", data->moves);
-	// printf("collectibles -> %d\n", data->co_count);
-	data->px = data->px - 1;
-	if (data->map2[data->px][data->py] == 'E' && !data->co_count)
+	if (d->map2[d->px - 1][d->py] == '1')
+		return (d);
+	if (d->map2[d->px - 1][d->py] == 'E' && d->co_count)
+		return (d);
+	d->moves += 1;
+	ft_printf("Moves -> %d\n", d->moves);
+	d->px = d->px - 1;
+	if (d->map2[d->px][d->py] == 'E' && !d->co_count)
 	{
 		write(1, "You Win\n", 9);
-		end(data);
+		end(d);
 	}
-	if (data->map2[data->px][data->py] == 'C')
+	if (d->map2[d->px][d->py] == 'C')
 	{
-		data->map2[data->px][data->py] = '0';
-		mlx_put_image_to_window(data->mlx, data->mlx_win, data->floor, data->py * 64, data->px * 64);
-		data->co_count--;
-		ft_printf("collectibles -> %d\n", data->co_count);
+		d->map2[d->px][d->py] = '0';
+		mlx_put_image_to_window(d->mlx, d->w, d->flr, d->py * 64, d->px * 64);
+		d->co_count--;
+		ft_printf("collectibles -> %d\n", d->co_count);
 	}
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->player, data->py * 64, data->px * 64);
-	mlx_put_image_to_window(data->mlx, data->mlx_win, data->floor, data->py * 64, (data->px + 1) * 64);
-	return (data);
+	mlx_put_image_to_window(d->mlx, d->w, d->player, d->py * 64, d->px * 64);
+	mlx_put_image_to_window(d->mlx, d->w, d->flr, d->py * 64, (d->px + 1) * 64);
+	return (d);
 }

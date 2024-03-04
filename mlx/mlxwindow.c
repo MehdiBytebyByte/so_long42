@@ -6,44 +6,44 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:13:30 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/04 16:15:37 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:51:05 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-t_struct	allmlxinit(t_struct data)
+t_struct	allmlxinit(t_struct d)
 {
 	int	w;
 	int	h;
 
-	data.mlx = mlx_init();
-	if (!data.mlx)
+	d.mlx = mlx_init();
+	if (!d.mlx)
 		(perror("Error"), exit(1));
-	data.mlx_win = mlx_new_window(data.mlx, data.colums * 64, (data.lines + 1) * 64, "SO_LONG");
-	if (!data.mlx_win)
+	d.w = mlx_new_window(d.mlx, d.colums * 64, (d.lines + 1) * 64, "SO_LONG");
+	if (!d.w)
 		(perror("Error"), exit(1));
-	data.floor = mlx_xpm_file_to_image(data.mlx, FLOOR, &h, &w);
-	if (!data.floor)
+	d.flr = mlx_xpm_file_to_image(d.mlx, FLR, &h, &w);
+	if (!d.flr)
 		(perror("Error"), exit(1));
-	data.wall = mlx_xpm_file_to_image(data.mlx, WALL, &h, &w);
-	if (!data.wall)
+	d.wall = mlx_xpm_file_to_image(d.mlx, WALL, &h, &w);
+	if (!d.wall)
 		(perror("Error"), exit(1));
-	data.player = mlx_xpm_file_to_image(data.mlx, PLAYER, &h, &w);
-	if (!data.player)
+	d.player = mlx_xpm_file_to_image(d.mlx, PLAYER, &h, &w);
+	if (!d.player)
 		(perror("Error"), exit(1));
-	data.col = mlx_xpm_file_to_image(data.mlx, COL, &h, &w);
-	data.end = mlx_xpm_file_to_image(data.mlx, END, &h, &w);
-	data.moves = 0;
-	return (data);
+	d.col = mlx_xpm_file_to_image(d.mlx, COL, &h, &w);
+	d.end = mlx_xpm_file_to_image(d.mlx, END, &h, &w);
+	d.moves = 0;
+	return (d);
 }
 
-int	window(t_struct data)
+int	window(t_struct d)
 {
-	data = allmlxinit(data);
-	mapinit(data);
-	collectinit(data);
-	mlx_hook(data.mlx_win, 2, 1L << 0, click, &data);
-	mlx_loop(data.mlx);
+	d = allmlxinit(d);
+	mapinit(d);
+	collectinit(d);
+	mlx_hook(d.w, 2, 1L << 0, click, &d);
+	mlx_loop(d.mlx);
 	return (1);
 }

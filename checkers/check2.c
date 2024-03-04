@@ -6,29 +6,29 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 19:56:50 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/04 16:25:17 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:46:29 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-t_struct	shapecheck(t_struct data)
+t_struct	shapecheck(t_struct d)
 {
 	int		j;
 	size_t	len;
 
 	j = 0;
-	while (j <= data.lines)
+	while (j <= d.lines)
 	{
-		len = ft_strlen(data.map2[j]);
-		if (len != ft_strlen(data.map2[0]))
-			iexit(data, 4);
+		len = ft_strlen(d.map2[j]);
+		if (len != ft_strlen(d.map2[0]))
+			iexit(d, 4);
 		j++;
 	}
-	return (data);
+	return (d);
 }
 
-void	numcheck(t_struct data)
+void	numcheck(t_struct d)
 {
 	int	i;
 	int	p;
@@ -39,18 +39,18 @@ void	numcheck(t_struct data)
 	p = 0;
 	c = 0;
 	i = 0;
-	while (data.map[i])
+	while (d.map[i])
 	{
-		if (data.map[i] == 'P')
+		if (d.map[i] == 'P')
 			p++;
-		else if (data.map[i] == 'C')
+		else if (d.map[i] == 'C')
 			c++;
-		else if (data.map[i] == 'E')
+		else if (d.map[i] == 'E')
 			e++;
 		i++;
 	}
 	if (e != 1 || c <= 0 || p != 1)
-		iexit(data, 4);
+		iexit(d, 4);
 }
 
 int	firstandlast(char *str)
@@ -68,32 +68,32 @@ int	firstandlast(char *str)
 	return (1);
 }
 
-int	midlines(t_struct data)
+int	midlines(t_struct d)
 {
 	int	i;
 	int	j;
 
 	i = 1;
 	j = 0;
-	while (i < data.lines)
+	while (i < d.lines)
 	{
-		if (data.map2[i][0] != '1' || data.map2[i][data.colums - 1] != '1' )
+		if (d.map2[i][0] != '1' || d.map2[i][d.colums - 1] != '1' )
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-int	diffkeyscheck(t_struct data )
+int	diffkeyscheck(t_struct d )
 {
 	int	i;
 
 	i = 0;
-	while (data.map[i])
+	while (d.map[i])
 	{
-		if (data.map[i] != '1' && data.map[i] != '0' && data.map[i] != 'P'
-			&& data.map[i] != 'C'
-			&& data.map[i] != 'E' && data.map[i] != '\n')
+		if (d.map[i] != '1' && d.map[i] != '0' && d.map[i] != 'P'
+			&& d.map[i] != 'C'
+			&& d.map[i] != 'E' && d.map[i] != '\n')
 			return (0);
 		i++;
 	}
