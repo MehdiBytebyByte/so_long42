@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 13:37:26 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/04 17:50:48 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 18:27:26 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int			midlines(t_struct d);
 int			newcheck(char *str);
 int			opencheck(t_struct d);
 int			diffkeyscheck(t_struct d);
-int			window(t_struct d);
+void		window(t_struct d);
 size_t		ft_strlen(char *str);
 size_t		ft_strlcpy(char	*dst, char	*src, size_t	dstsize);
 t_struct	shapecheck(t_struct d);

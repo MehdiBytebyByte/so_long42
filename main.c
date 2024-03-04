@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 17:16:15 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/04 17:46:29 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 18:26:25 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	main(int argc, char *argv[])
 	if (argc != 2)
 		iexit(d, 0);
 	d = bigcheckfunc(d);
-	if (window(d) < 0)
-		iexit(d, 7);
+	window(d);
 	return (0);
 }
