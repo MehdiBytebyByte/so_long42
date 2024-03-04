@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 18:08:57 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/04 19:26:29 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 20:04:47 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	end(t_struct *d)
 	mlx_destroy_window(d->mlx, d->w);
 	write(1, "Game exited\n", 13);
 	cleaner(*d);
+	close (d->fd);
 	exit(0);
 }
 

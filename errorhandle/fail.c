@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:02:18 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/04 19:54:47 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 20:02:30 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	iexit(t_struct d, int i)
 		write(2, "the path is unreachable", 24);
 	if (i > 3)
 		cleaner(d);
+	close (d.fd);
 	exit(1);
 }
 
