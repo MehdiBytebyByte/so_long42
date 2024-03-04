@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 20:32:24 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/04 17:46:29 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 19:38:29 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ int	click(int keycode, void *param)
 		d = move_down(d);
 	if (keycode == 13)
 		d = move_up(d);
-	return (0);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:02:18 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/04 17:46:29 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 19:54:47 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ void	iexit(t_struct d, int i)
 		write(2, "The Map doesn't follow the rules of the subject", 48);
 	else if (i == 5)
 		write(2, "the path is unreachable", 24);
-	else if (i == 6)
-		write(2, "mlx", 4);
 	if (i > 3)
 		cleaner(d);
 	exit(1);
@@ -40,7 +38,7 @@ void	cleaner(t_struct d)
 
 	i = 0;
 	free(d.map);
-	while (i < d.lines)
+	while (i < d.lines + 1)
 	{
 		free(d.map2[i]);
 		i++;
