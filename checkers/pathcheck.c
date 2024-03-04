@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 18:14:08 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/04 18:19:24 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/04 21:46:54 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,19 @@ t_struct	newmapallocater(t_struct d)
 	i = 0;
 	d.newmap = (char **) malloc(sizeof(char *) * (d.lines + 1));
 	if (!d.newmap)
-		iexit(d, 4);
+	{
+		free (d.newmap);
+		iexit(d, 6);
+	}
 	while (i < d.lines + 1)
 	{
 		d.newmap[i] = (char *)malloc(sizeof(char) * (d.colums + 1));
-		if (!d.newmap)
+		if (!d.newmap[i])
 		{
 			while (j < i)
 				free(d.newmap[j++]);
-			free(d.newmap[j]);
-			iexit(d, 4);
+			free(d.newmap);
+			iexit(d, 6);
 		}
 		i++;
 	}
