@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 23:11:42 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/04 19:55:05 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/05 12:54:23 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,4 @@ void	freemap(t_struct d)
 		i++;
 	}
 	free(d.newmap);
-	free(d.map);
 }

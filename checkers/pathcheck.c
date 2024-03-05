@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 18:14:08 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/04 21:46:54 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:38:43 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,10 @@ t_struct	newmapcoppier(t_struct d)
 
 t_struct	floodfill(t_struct d, int x, int y)
 {
+	if (d.newmap[x][y] == 'E')
+		d.newmap[x][y] = 'D';
 	if (x < 0 || x >= d.lines || y < 0 || y >= d.colums
-		|| (d.newmap[x][y] != '0' && d.newmap[x][y] != 'P'
-		&& d.newmap[x][y] != 'C' && d.newmap[x][y] != 'E'))
+	|| (d.newmap[x][y] == '1' || d.newmap[x][y] == 'D'))
 		return (d);
 	d.newmap[x][y] = 'D';
 	d = floodfill(d, x + 1, y);
@@ -103,5 +104,12 @@ t_struct	pathcheck(t_struct d)
 	d = newmapallocater(d);
 	d = newmapcoppier(d);
 	d = floodfill(d, d.px, d.py);
+
+	int i = 0;
+	while (i < d.lines + 1)
+	{
+		ft_printf("%s\n",d.newmap[i]);
+		i++;
+	}
 	return (d);
 }
