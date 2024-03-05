@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:13:30 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/04 19:37:08 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/05 14:21:58 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ void	window(t_struct d)
 	mapinit(d);
 	collectinit(d);
 	mlx_hook(d.w, 2, 1L << 0, click, &d);
+	mlx_hook(d.w, 17, 1L << 0, closew, &d);
 	mlx_loop(d.mlx);
 }

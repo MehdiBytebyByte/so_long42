@@ -6,13 +6,13 @@
 #    By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/11 17:41:30 by mboughra          #+#    #+#              #
-#    Updated: 2024/03/04 18:25:39 by mboughra         ###   ########.fr        #
+#    Updated: 2024/03/05 14:25:27 by mboughra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC =  gcc
+CC =  cc
 CFLAGS = -Wall -Werror -Wextra
-TARGET = so_long
+NAME = so_long
 SRCS = checkers/check2.c checkers/check1.c checkers/check3.c \
 		get_next_line/get_next_line_utils.c get_next_line/get_next_line.c \
 		main.c checkers/mapmaker.c checkers/split.c checkers/pathcheck.c \
@@ -21,14 +21,14 @@ SRCS = checkers/check2.c checkers/check1.c checkers/check3.c \
 		mlx/key.c printf/ft_printf.c printf/ft_hexafunctions.c printf/ft_putfunctions.c
 OBJS = $(SRCS:.c=.o)
 HEADER = so_long.h
+all: $(NAME)
 %.o: %.c $(HEADER)
 	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -lmlx -framework OpenGL -framework AppKit -o $(TARGET) 
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 clean:
 	rm -f $(OBJS)
 fclean: clean
-	rm -f $(TARGET)
+	rm -f $(NAME)
 re: fclean all
-all: $(TARGET)
 .PHONY: clean

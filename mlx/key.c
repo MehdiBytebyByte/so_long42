@@ -6,11 +6,21 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 20:32:24 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/04 20:03:25 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/05 14:26:37 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
+
+int	closew(void *param)
+{
+	t_struct	*d;
+
+	d = (t_struct *)param;
+	mlx_destroy_window(d->mlx, d->w);
+	exit(1);
+	return (0);
+}
 
 int	click(int keycode, void *param)
 {
