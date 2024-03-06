@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:02:18 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/05 13:47:07 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/06 15:31:42 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	iexit(t_struct d, int i)
 {
-	write(2, "ERROR\n", 7);
+	if (i <= 6)
+		write(2, "ERROR\n", 7);
 	if (i == 0)
 		write(2, "Please Enter the map and only the map\n", 39);
 	else if (i == 1)
@@ -40,14 +41,11 @@ void	cleaner(t_struct d)
 	int	i;
 
 	i = 0;
-	if (d.map != NULL)
-		free(d.map);
+	free(d.map);
 	while (i < d.lines + 1)
 	{
-		if (d.map2[i] != NULL)
-			free(d.map2[i]);
+		free(d.map2[i]);
 		i++;
 	}
-	if (d.map2 != NULL)
-		free(d.map2);
+	free(d.map2);
 }

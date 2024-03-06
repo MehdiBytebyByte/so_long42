@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:13:30 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/05 14:21:58 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/06 16:24:06 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,11 @@ t_struct	allmlxinit(t_struct d)
 	if (!d.player)
 		(perror("Error"), iexit(d, 7));
 	d.col = mlx_xpm_file_to_image(d.mlx, COL, &h, &w);
+	if (!d.col)
+		(perror("Error"), iexit(d, 7));
 	d.end = mlx_xpm_file_to_image(d.mlx, END, &h, &w);
-	d.moves = 0;
+	if (!d.end)
+		(perror("Error"), iexit(d, 7));
 	return (d);
 }
 
@@ -43,6 +46,7 @@ void	window(t_struct d)
 	d = allmlxinit(d);
 	mapinit(d);
 	collectinit(d);
+	d.moves = 0;
 	mlx_hook(d.w, 2, 1L << 0, click, &d);
 	mlx_hook(d.w, 17, 1L << 0, closew, &d);
 	mlx_loop(d.mlx);
