@@ -6,13 +6,13 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:59:25 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/04 16:41:23 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/07 13:17:22 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-static int	ft_subscounter(char *str, char c)
+int	ft_subscounter(char *str, char c)
 {
 	int	count;
 	int	i;
@@ -33,7 +33,7 @@ static int	ft_subscounter(char *str, char c)
 	return (count);
 }
 
-static char	*coppier(char *s, int y, int x)
+char	*coppier(char *s, int y, int x)
 {
 	int		i;
 	int		len;
@@ -53,7 +53,7 @@ static char	*coppier(char *s, int y, int x)
 	return (splited);
 }
 
-static void	freemem(char **splited, int r)
+void	freemem(char **splited, int r)
 {
 	int	i;
 
@@ -65,7 +65,7 @@ static void	freemem(char **splited, int r)
 	}
 }
 
-static char	**allocater(char *str, char c, int nsubs, char **splited)
+char	**allocater(char *str, char c, int nsubs, char **splited)
 {
 	int	x;
 	int	y;

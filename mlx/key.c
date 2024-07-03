@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 20:32:24 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/06 16:58:24 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/06 20:11:51 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	closew(void *param)
 
 	d = (t_struct *)param;
 	mlx_destroy_window(d->mlx, d->w);
-	write(1, "Window Closed\n", 16);
+	write(1, "Window Closed\n", 15);
 	cleaner(*d);
 	close(d->fd);
 	exit(0);

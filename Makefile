@@ -6,12 +6,12 @@
 #    By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/11 17:41:30 by mboughra          #+#    #+#              #
-#    Updated: 2024/03/05 19:56:58 by mboughra         ###   ########.fr        #
+#    Updated: 2024/03/06 20:10:04 by mboughra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC =  cc
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra
 NAME = so_long
 SRCS = checkers/check2.c \
 		checkers/check1.c \

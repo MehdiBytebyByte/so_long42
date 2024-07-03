@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 13:37:26 by mboughra          #+#    #+#             */
-/*   Updated: 2024/03/05 15:25:07 by mboughra         ###   ########.fr       */
+/*   Updated: 2024/03/07 13:16:32 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,10 @@ int			ft_putstr(char *s);
 int			ft_hexapointer(unsigned long a);
 int			closew(void *param);
 int			ft_hexaconv(unsigned int a, char c);
+int			ft_subscounter(char *str, char c);
+char		*coppier(char *s, int y, int x);
+void		freemem(char **splited, int r);
+char		**allocater(char *str, char c, int nsubs, char **splited);
 size_t		ft_strlen(char *str);
 size_t		ft_strlcpy(char	*dst, char	*src, size_t	dstsize);
 t_struct	shapecheck(t_struct d);
